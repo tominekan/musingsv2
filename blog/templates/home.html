@@ -3,5 +3,24 @@
 {% block title %} Home Page {% endblock %}
 
 {% block content %}
-<p>Lebron James</p>
+<div>
+    <h1>Hi, I'm <span>Tomi!</span></h1>
+    <p>These are a collection of my thoughts about random stuff in my life. 
+        It spans coding, philosophy, and miscallenous personal reflections. 
+        Whatever I think about and find the time to write down, you'll find it here.
+    </p>
+</div>
+<h2>Some stuff I wrote: </h2>
+{% for article in articles %}
+    <div>
+        <!-- THIS IS MOST DEFINITELY BUGGY, WILL FIX LATER -->
+        <img src="{{ article.article_image.url }}" alt="{{ article.image_summary }}}">
+        <p>Link: {{ article.article_image.url }}</p>
+    </div>
+    <div>
+        <span>{{ article.title }}</span>
+        <p>{{ article.summary }}</p>
+    </div>
+{% endfor %}
+
 {% endblock %}
