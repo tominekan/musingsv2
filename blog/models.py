@@ -10,7 +10,7 @@ class SingleArticle(models.Model):
     title = models.CharField(max_length=100, null=True)
     publish_date = models.DateTimeField()
     content = models.TextField(null=True)
-    
+
     # Images should probably not be necessary, not 100% sure though
     article_image = models.ImageField(upload_to="articleImages", null=True)
     image_summary = models.CharField(max_length=50, null=True)

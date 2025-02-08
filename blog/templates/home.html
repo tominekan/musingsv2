@@ -14,12 +14,10 @@
 {% for article in articles %}
     <div>
         <!-- THIS IS MOST DEFINITELY BUGGY, WILL FIX LATER -->
-        <img src="{{ article.article_image.url }}" alt="{{ article.image_summary }}">
-        <p>URL: {{ article.article_image.url }}</p>
-        <p>PATH: {{ article.article_image.path }}</p>
+        <img src="{{ article.article_image.url }}" alt="{{ article.image_summary }}" style="width:150px">
     </div>
     <div>
-        <span>{{ article.title }}</span>
+        <span><a href="/{{ article.articleID }}">{{ article.title }}</a></span>
         <p>{{ article.summary }}</p>
     </div>
 {% endfor %}

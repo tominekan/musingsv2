@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+<div>
+    <h1>{{ article.title }}</h1>
+    <span>{{ article.publish_date }}</span>
+    <br>
+    <span>{{ minsToRead }} min read</span>
+    <br>
+    <img src="{{ article.article_image.url }}" alt="{{article.image_summary}}" style="width:50vw">
+    <p>{{ article.content }}</p>
+</div>
+
+{% endblock %}
