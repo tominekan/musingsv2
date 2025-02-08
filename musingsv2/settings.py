@@ -119,6 +119,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # Add Media (specifically article images)
+MEDIA_ROOT = "/Users/tominekan/Code/musingsv2/media"
 MEDIA_URL = "media/"
 
 # Default primary key field type
