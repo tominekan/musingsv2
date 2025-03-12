@@ -3,23 +3,34 @@
 {% block title %} Home Page {% endblock %}
 
 {% block content %}
-<div>
-    <h1>Hi, I'm <span>Tomi!</span></h1>
-    <p>These are a collection of my thoughts about random stuff in my life. 
-        It spans coding, philosophy, and miscallenous personal reflections. 
-        Whatever I think about and find the time to write down, you'll find it here.
-    </p>
+<div style="min-height: 100vh;">
+    <div class="container-lg flex-column text-center">
+        <h1 class="fw-bold">Hi, I'm <span>Tomi!</span></h1>
+        <p>
+            These are a collection of my thoughts about random stuff in my life. 
+            It spans coding, philosophy, and miscallenous personal reflections. 
+            Whatever I think about and find the time to write down, you'll find it here.
+        </p>
+    </div>
+
+
+    <h2 class="fw-bold text-center mb-5">Some stuff I wrote:</h2>
+
+    {% for article in articles %}
+        <div class="container-lg">
+           <div class="row align-items-center pb-20">
+               <div class="col-sm ratio ratio-4x3"=>
+                    <!-- THIS IS MOST DEFINITELY BUGGY, WILL FIX LATER -->
+                    <img src="{{ article.article_image.url }}" alt="{{ article.image_summary }}" class="img-fluid rounded" style="object-fit: cover">
+                </div>
+
+                <div class="col text-center">
+                    <span class="fw-bold fs-4"><a href="/{{ article.articleID }}" class="link-dark">{{ article.title }}</a></span>
+                    <p class="mt-3">{{ article.summary }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 </div>
-<h2>Some stuff I wrote: </h2>
-{% for article in articles %}
-    <div>
-        <!-- THIS IS MOST DEFINITELY BUGGY, WILL FIX LATER -->
-        <img src="{{ article.article_image.url }}" alt="{{ article.image_summary }}" style="width:150px">
-    </div>
-    <div>
-        <span><a href="/{{ article.articleID }}">{{ article.title }}</a></span>
-        <p>{{ article.summary }}</p>
-    </div>
-{% endfor %}
 
 {% endblock %}

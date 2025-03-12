@@ -25,16 +25,33 @@
     <title>{% block title %} Base Page {% endblock %}</title>
 </head>
 <body>
-    <div class="navbar">
-        <div class="navbar-logo">
-            <img src="{% static 'blog/musings_logo.png' %}" alt="">
-            <span><a href="/">Tomi's Musings</a></span>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand fw-bold fs-3">
+                <img src="{% static 'blog/musings_logo.png' %}"
+                alt="Tomi's Musing's Logo"
+                class="d-inline-block">
+                Tomi's Musings
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#websiteMenu" aria-controls="websiteMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="websiteMenu">
+                <ul class="navbar-nav me-auto mb-2 mg-lg-0">
+                    <li class="nav-item"> 
+                        <a href="/about" class="nav-link">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="https://github.com/tominekan" class="nav-link">GitHub</a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="btn btn-primary">
-            LEBRON JAMES
-        </div>
-    </div>
+    </nav>
     <!-- BIGGEST TEXT OF THE WEBSITE -->
     <div>
         <h1>
