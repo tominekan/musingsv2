@@ -5,7 +5,7 @@
 {% block content %}
 <div style="min-height: 100vh;">
     <div class="container-lg flex-column text-center">
-        <h1 class="fw-bold">Hi, I'm <span>Tomi!</span></h1>
+        <h1 class="fw-bold mb-4 mt-2 mt-sm-auto">Hi, I'm T<span class="border-bottom">omi!&nbsp;</span></h1>
         <p>
             These are a collection of my thoughts about random stuff in my life. 
             It spans coding, philosophy, and miscallenous personal reflections. 
@@ -14,22 +14,29 @@
     </div>
 
 
-    <h2 class="fw-bold text-center mb-5">Some stuff I wrote:</h2>
+    <h2 class="fw-bold text-center" style="padding-bottom: 8vh; padding-top: 8vh;">Some stuff I wrote:</h2>
 
     {% for article in articles %}
-        <div class="container-lg">
-           <div class="row align-items-center pb-20">
-               <div class="col-sm ratio ratio-4x3"=>
+        <div class="col col-xxl d-flex flex-column pb-5 justify-content-center align-items-center">
+           <div class="row align-items-center pb-2 justify-content-center w-75 text-center">
+               <div class="col-auto justify-content-center"=>
                     <!-- THIS IS MOST DEFINITELY BUGGY, WILL FIX LATER -->
-                    <img src="{{ article.article_image.url }}" alt="{{ article.image_summary }}" class="img-fluid rounded" style="object-fit: cover">
+                    <img 
+                    src="{{ article.article_image.url }}"
+                    alt="{{ article.image_summary }}"
+                    class="img-fluid rounded" 
+                    style="object-fit: cover; height: max(35vh, 100px); width: max(32.5vh, 150px)"
+                    >
                 </div>
 
-                <div class="col text-center">
+                <div class="col-sm text-center align-items justify-content-center pt-4 pt-sm-auto">
                     <span class="fw-bold fs-4"><a href="/{{ article.articleID }}" class="link-dark">{{ article.title }}</a></span>
                     <p class="mt-3">{{ article.summary }}</p>
                 </div>
             </div>
+            <hr class="w-75">
         </div>
+
     {% endfor %}
 </div>
 

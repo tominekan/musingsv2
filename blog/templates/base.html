@@ -11,15 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    <!-- WILL NEED TO REMOVE THIS LATER, AND INSTEAD USE OUR CREATED VERSION -->
     <!-- ADD BOOTSRAP CDN (FIRST JS) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script> -->
 
-    <!-- THEN CSS -->
-    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- ADD CUSTOM BOOTSTRAP CSS -->
+    <link href="{% static 'custom_bootstrap/css/custom.css' %}" rel="stylesheet">
 
-    <!-- ADD SOME CUSTOM CSS (MIGHT NOT NEED - FINGERS CROSSED-)  -->
-    <link rel="stylesheet" href="{% static 'blog/custom.css' %}">
 
     <!-- WEBSITE TITLE -->
     <title>{% block title %} Base Page {% endblock %}</title>
@@ -31,7 +30,7 @@
                 <img src="{% static 'blog/musings_logo.png' %}"
                 alt="Tomi's Musing's Logo"
                 class="d-inline-block">
-                Tomi's Musings
+                <span style="padding-top: 10px;">Tomi's Musings</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#websiteMenu" aria-controls="websiteMenu" aria-expanded="false" aria-label="Toggle navigation">

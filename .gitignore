@@ -139,3 +139,9 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+
+# Hiding The Bootstrap Files
+*/package-lock.json
+*/node_modules/*
+*/custom_bootstrap/css/*

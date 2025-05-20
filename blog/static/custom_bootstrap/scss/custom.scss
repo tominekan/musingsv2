@@ -1,0 +1,7 @@
+// Here im importing all of bootstrap, not going to lie
+// However, I'll note that if the blog project ever gets bigger (in terms of UI)
+// it might be more efficient to import specific modules
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+$body-bg: #E0E8EE;
+$body-color: #000000;
