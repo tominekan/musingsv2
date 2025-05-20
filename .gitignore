@@ -143,5 +143,5 @@ GitHub.sublime-settings
 
 # Hiding The Bootstrap Files
 */package-lock.json
-*/node_modules/*
-*/custom_bootstrap/css/*
+**/node_modules/**
+**/custom_bootstrap/css/**
