@@ -19,13 +19,13 @@
     {% for article in articles %}
         <div class="col col-xxl d-flex flex-column pb-5 justify-content-center align-items-center">
            <div class="row align-items-center pb-2 justify-content-center w-75 text-center">
-               <div class="col-auto justify-content-center"=>
+               <div class="col-auto justify-content-center">
                     <!-- THIS IS MOST DEFINITELY BUGGY, WILL FIX LATER -->
                     <img 
                     src="{{ article.article_image.url }}"
                     alt="{{ article.image_summary }}"
                     class="img-fluid rounded" 
-                    style="object-fit: cover; height: max(35vh, 100px); width: max(32.5vh, 150px)"
+                    style="object-fit: cover; height: max(35vh, 100px); width: max(50vh, 150px)"
                     >
                 </div>
 
