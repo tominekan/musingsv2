@@ -28,7 +28,7 @@ tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%0x)%k#st=37t211bad%vh+asx3vfc2vjq%w0qa74eei56vrf@'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
