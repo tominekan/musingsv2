@@ -33,3 +33,7 @@ sass ./scss/custom.scss ./css/custom.css
 - [ ] Articles search (if I have enough time)
 - [ ] Email Notifications (if I decide to be consistent)
 - [ ] Syntax highlighting for code snippets
+
+
+## Personal Notes
+Currently I'm using Neon for my Database and and Appliku for hosting my server.
