@@ -23,5 +23,13 @@ There should already be a `custom.scss` file in the `scss` directory. All that's
 To run the sass compiler, first install sass. Then have it watch for any changes in the `custom.scss` file.
 ```
 npm install -g sass
-sass --watch ./scss/custom.scss ./css/custom.css
+sass ./scss/custom.scss ./css/custom.css
 ```
+
+## Planned Features
+- [x] Markdown article content support
+- [ ] Updating the look and Feel of the admin page
+- [ ] Implement pagination for the list of articles lol
+- [ ] Articles search (if I have enough time)
+- [ ] Email Notifications (if I decide to be consistent)
+- [ ] Syntax highlighting for code snippets

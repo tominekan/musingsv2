@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} About Me {% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-center mt-5 container-fluid">
+    <div class="d-flex w-75 align-items-center justify-content-center row">
+        <!-- THE TEXT OF THE WEBSITE-->
+        <div class="d-flex flex-column align-items-center col text-center col me-0 me-md-3 mb-5 ">
+            <h1 class="fw-bold pb-3">Who <span class="punchy">Am I? &nbsp;</span></h1>
+            <div class="fw-medium">
+                <p> I'm Tomi Adenekan, a sophomore studying Computer Science with a minor in Philosophy 
+                    at Penn. I love to cook, workout, code, and eat. 
+                    I love learning most things and like an interesting challenge.  
+                    You'll often find me working through the tons of homework I can never seem to escape, 
+                    thinking about philosophy, or working on a cool project.
+                </p>
+
+                <p>If you want to get in touch, send me an email at tominekan12@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="col-auto col">
+            <img 
+                src="{% static 'blog/luh_image.png' %}"
+                alt="Image of Me"
+                style="max-width: 100%; object-fit: cover; max-height: 100%;"
+                class="align-self-center img-fluid"
+            />
+        </div>
+    </div>
+</div>
+{% endblock %}
