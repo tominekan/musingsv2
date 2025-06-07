@@ -36,4 +36,4 @@ sass ./scss/custom.scss ./css/custom.css
 
 
 ## Personal Notes
-Currently I'm using Neon for my Database and and Appliku for hosting my server.
+Currently I'm using Neon for my Database and and Appliku for hosting my server (Free tiers look good for both lol). Might switch to fully Appliku or something later.
