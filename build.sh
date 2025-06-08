@@ -4,8 +4,6 @@ set -o errexit
 # Install requirements.txt (I think I collected it)
 pip install -r requirements.txt
 
-# Collect the static files
-python manage.py collectstatic --no-input
 # Migrate DB for Usefulness
 python manage.py migrate
 
