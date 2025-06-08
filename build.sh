@@ -8,7 +8,6 @@ pip install -r requirements.txt
 python manage.py migrate
 
 # Make use of the custom bootstrap
-mkdir blog/static/custom_bootstrap
 cd blog/static/custom_bootstrap
 npm init -y
 npm install bootstrap@5.3.6
