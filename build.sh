@@ -14,3 +14,8 @@ npm install bootstrap@5.3.6
 
 npm install -g sass
 npm run buildcss
+
+# Bro I'm tryna see what's wrong lol
+echo "Trying to visualize folder structure"
+cd ../../..
+tree .
