@@ -139,10 +139,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/blog/static/'
 
 # Add Media (specifically article images)
-MEDIA_ROOT = "/Users/tominekan/Code/musingsv2/media"
+MEDIA_ROOT = "musingsv2/media"
 MEDIA_URL = "media/"
 
 # Default primary key field type
