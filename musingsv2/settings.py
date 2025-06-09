@@ -31,7 +31,7 @@ tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["musings-xcu4.onrender.com"]
 
@@ -142,7 +142,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # Add Media (specifically article images)
-MEDIA_ROOT = "/Users/tominekan/Code/musingsv2/media"
+MEDIA_ROOT = "./musingsv2/media"
 MEDIA_URL = "media/"
 
 # Default primary key field type
