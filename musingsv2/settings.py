@@ -142,7 +142,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # Add Media (specifically article images)
-MEDIA_ROOT = "./musingsv2/media"
+MEDIA_ROOT = "musingsv2/media"
 MEDIA_URL = "media/"
 
 # Default primary key field type
