@@ -18,4 +18,4 @@ npm run buildcss
 # Bro I'm tryna see what's wrong lol
 echo "Trying to visualize folder structure"
 cd ../../..
-tree .
+python tree.py
