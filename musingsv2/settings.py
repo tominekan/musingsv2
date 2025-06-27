@@ -31,7 +31,7 @@ tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["musings-xcu4.onrender.com", "127.0.0.1"]
 
