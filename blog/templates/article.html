@@ -4,22 +4,15 @@
 
 {% block content %}
 <div class="w-100 text-center d-flex flex-column align-items-center">
-    <h1 class="text-center fw-bold ">{{ article.title }}</h1>
-    <div class="w-75">
+    <h1 class="text-center fw-bold">{{ article.title }}</h1>
+    <div class="w-75 d-flex flex-column align-items-center">
 
-        <div class="container-fluid d-flex flex-row justify-content-between pb-2">
+        <div class="container-fluid d-flex flex-row justify-content-between pb-5">
             <span>{{ article.publish_date }}</span>
             <span>{{ minsToRead }} min read</span>
         </div>
 
-        <img 
-            src="{{ article.article_image.url }}"
-            alt="{{article.image_summary}}"
-            style="object-fit: cover; max-height: 750px"
-            class="container-fluid w-100 mb-5 shadow-lg px-0"
-        />
-
-        <div class="fw-medium">
+        <div class="fw-medium text-center display-flex align-items-center d-flex flex-column">
             {{ htmlContent | safe }}
         </div>
     </div>

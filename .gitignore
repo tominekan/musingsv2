@@ -145,3 +145,6 @@ GitHub.sublime-settings
 */package-lock.json
 **/node_modules/**
 **/custom_bootstrap/css/**
+
+# Hide Django's Static files
+staticfiles/

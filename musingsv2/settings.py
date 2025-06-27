@@ -31,9 +31,9 @@ tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["musings-xcu4.onrender.com"]
+ALLOWED_HOSTS = ["musings-xcu4.onrender.com", "127.0.0.1"]
 
 
 # Application definition
@@ -141,7 +141,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Add Media (specifically article images)
 MEDIA_ROOT = "musingsv2/media"
