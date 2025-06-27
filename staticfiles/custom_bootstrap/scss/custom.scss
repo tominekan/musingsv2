@@ -1,0 +1,60 @@
+// Here im importing all of bootstrap, not going to lie
+// However, I'll note that if the blog project ever gets bigger (in terms of UI)
+// it might be more efficient to import specific modules
+@import "../node_modules/bootstrap/scss/functions";
+
+$body-bg: #E0E8EE;
+$body-color: #000000;
+$font-family-sans-serif: 
+"Montserrat", 
+system-ui,
+// Safari for macOS and iOS (San Francisco)
+-apple-system,
+// Windows
+"Segoe UI",
+// Android
+Roboto,
+// older macOS and iOS
+"Helvetica Neue",
+// Linux
+"Noto Sans",
+"Liberation Sans",
+// Basic web fallback
+Arial,
+// Sans serif fallback
+sans-serif,
+// Emoji fonts
+"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+// This is for the yellow underline effect that emphasizes some text
+.punchy {
+    border-bottom: 5px solid #F1DA2E;
+}
+
+.article-title {
+    text-decoration: none;
+}
+
+hr {
+    border: 5px solid black !important;
+    color: black !important;
+    background-color: black !important;
+    border-radius: 4px;
+}
+
+code {
+    background-color: #282A36;
+    color: #F8F8F2;
+}
+
+pre {
+    background-color: #282A36;
+    color: #F8F8F2;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.20);
+}
