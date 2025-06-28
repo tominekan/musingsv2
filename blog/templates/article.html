@@ -4,15 +4,15 @@
 
 {% block content %}
 <div class="w-100 text-center d-flex flex-column align-items-center">
-    <h1 class="text-center fw-bold">{{ article.title }}</h1>
-    <div class="w-75 d-flex flex-column align-items-center">
+    <h1 class="text-center fw-bold pb-3">{{ article.title }}</h1>
+    <div class="w-50 d-flex flex-column align-items-center">
 
         <div class="container-fluid d-flex flex-row justify-content-between pb-5">
             <span>{{ article.publish_date }}</span>
             <span>{{ minsToRead }} min read</span>
         </div>
 
-        <div class="fw-medium text-center display-flex align-items-center d-flex flex-column">
+        <div class="fw-medium display-flex align-items-center d-flex flex-column">
             {{ htmlContent | safe }}
         </div>
     </div>
