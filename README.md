@@ -54,7 +54,7 @@ topics: [food, cooking]   # optional, shown as #hashtags
 Made shakshuka for the first time. Too much cumin, zero regrets.
 ```
 
-The quickest way to add one is my local `plate` script (gitignored, aliased in `~/.zshrc`):
+The quickest way to add one is my local `plate` script (gitignored, aliased in `~/.zshrc`). It writes the plate, commits only that file (plus `topics.ts` if a topic is new) and pushes, so the plate goes live right away:
 
 ```
 plate "Made shakshuka. Too much cumin, zero regrets." food cooking
