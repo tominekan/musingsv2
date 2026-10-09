@@ -1,7 +1,5 @@
 ---
-import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import tomi from '../assets/tomi.png';
 ---
 <BaseLayout title="About" section="about" description="Who's writing this.">
   <section class="about">
@@ -19,9 +17,6 @@ import tomi from '../assets/tomi.png';
         <a href="mailto:tominekan12@gmail.com">tominekan12@gmail.com</a>.
       </p>
     </div>
-    <figure class="photo card">
-      <Image src={tomi} alt="Tomi" width={487} />
-    </figure>
   </section>
 </BaseLayout>
 
@@ -57,12 +52,4 @@ import tomi from '../assets/tomi.png';
     transform: rotate(calc(var(--tilt) * 1.5deg));
   }
   .text > p:not(.kicker) { margin: 0; font-size: 20px; line-height: 1.6; }
-  .photo {
-    flex: 0 1 320px;
-    margin: 0;
-    padding: 12px;
-    border-radius: 24px;
-    transform: rotate(calc(var(--tilt) * 1deg));
-  }
-  .photo :global(img) { display: block; width: 100%; height: auto; border-radius: 14px; }
 </style>
