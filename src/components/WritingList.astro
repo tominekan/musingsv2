@@ -1,0 +1,42 @@
+---
+import PostRow from './PostRow.astro';
+import TopicFilter from './TopicFilter.astro';
+import type { Post } from '../lib/content';
+import type { TopicSlug } from '../lib/topics';
+
+// The full list of posts, used by /posts and /topics/<topic>.
+interface Props {
+  heading: string;
+  posts: Post[];
+  available: TopicSlug[];
+  current?: TopicSlug;
+}
+const { heading, posts, available, current } = Astro.props;
+---
+<section aria-labelledby="list-h" class="list">
+  <div class="head">
+    <h1 id="list-h" class="section-title">{heading}</h1>
+    <TopicFilter available={available} current={current} />
+  </div>
+  <div class="rows">
+    {posts.map((post) => <PostRow post={post} />)}
+  </div>
+</section>
+
+<style>
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 920px;
+    padding: 40px 0 96px;
+  }
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .rows { display: flex; flex-direction: column; }
+</style>

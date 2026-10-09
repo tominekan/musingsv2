@@ -1,0 +1,31 @@
+---
+import { topics, type TopicSlug } from '../lib/topics';
+
+interface Props {
+  topic: TopicSlug;
+  // tag: label on cards · small: in plates and "keep reading" · hash: "#topic"
+  size?: 'tag' | 'small' | 'hash';
+  // Override the label, e.g. for a free-form tag drawn in a topic's colors.
+  label?: string;
+}
+
+const { topic, size = 'tag', label } = Astro.props;
+const text = label ?? (size === 'hash' ? `#${topic}` : topics[topic].label);
+---
+<span class:list={['pill', size !== 'tag' && 'pill--small']} data-topic={topic}>{text}</span>
+
+<style>
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--t-bg);
+    color: var(--t-ink);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .pill--small { padding: 4px 10px; font-size: 12px; }
+</style>

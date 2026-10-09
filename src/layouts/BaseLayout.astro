@@ -1,0 +1,120 @@
+---
+import '../styles/global.css';
+import { topicCss } from '../lib/topics';
+
+interface Props {
+  title?: string;
+  description?: string;
+  // Which main-nav item to mark as the current page.
+  section?: 'writing' | 'plates' | 'about';
+}
+
+const { title, description = "Tomi's blog: long posts when I've figured something out, small plates when I haven't.", section } = Astro.props;
+const pageTitle = title ? `${title} · musings` : 'musings';
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const nav = [
+  { key: 'writing', label: 'Writing', href: '/posts' },
+  { key: 'plates', label: 'Small plates', href: '/plates' },
+  { key: 'about', label: 'About', href: '/about' },
+] as const;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="alternate" type="application/rss+xml" title="musings" href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <style is:inline set:html={topicCss}></style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="site-header">
+        <a href="/" class="wordmark">musings</a>
+        <nav aria-label="Main" class="site-nav">
+          {nav.map((item) => (
+            <a href={item.href} aria-current={section === item.key ? 'page' : undefined}>{item.label}</a>
+          ))}
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <p class="mono muted">// thanks for stopping by · © {new Date().getFullYear()} Tomi</p>
+        <nav aria-label="Elsewhere" class="footer-nav">
+          <a href="/rss.xml">RSS</a>
+          <a href="mailto:tominekan12@gmail.com">Email</a>
+          <a href="https://github.com/tominekan">GitHub</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 24px 0;
+  }
+  .wordmark {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-decoration: none;
+  }
+  .site-nav, .footer-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .site-nav a, .footer-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .footer-nav a { padding: 0 12px; }
+  .site-nav a[aria-current='page'] {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+  }
+  .site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0 48px;
+    border-top: 2px dashed var(--line);
+  }
+  .site-footer p { margin: 0; font-size: 13px; }
+</style>

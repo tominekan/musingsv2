@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import TopicPill from './TopicPill.astro';
+import Arrow from './Arrow.astro';
+import { formatDate, readingTime, summaryOf, type Post } from '../lib/content';
+
+interface Props {
+  post: Post;
+}
+const { post } = Astro.props;
+const { title, topic, date, hero, heroAlt } = post.data;
+const href = `/posts/${post.id}`;
+---
+<article class="featured card lift">
+  <div class="body">
+    <div class="meta">
+      <TopicPill topic={topic} />
+      <span class="mono muted">{formatDate(date)} · {readingTime(post.body)} min read</span>
+    </div>
+    <h3><a href={href}>{title}</a></h3>
+    <p class="muted">{summaryOf(post)}</p>
+    <a href={href} class="button">Read it<span class="sr-only">: {title}</span><Arrow /></a>
+  </div>
+  {hero && (
+    <div class="art" data-topic={topic}>
+      <Image src={hero} alt={heroAlt ?? ''} width={560} />
+    </div>
+  )}
+</article>
+
+<style>
+  .featured {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    align-items: center;
+    padding: 28px;
+    border-radius: 24px;
+  }
+  .body {
+    flex: 1 1 300px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .meta .mono { font-size: 13px; }
+  h3 {
+    margin: 0;
+    font-size: 36px;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  h3 a { text-decoration: none; }
+  p { margin: 0; font-size: 18px; }
+  .art {
+    flex: 0 1 280px;
+    min-width: 0;
+    padding: 16px;
+    border-radius: 18px;
+    background: var(--t-bg);
+    border: 2px solid var(--edge);
+  }
+  .art :global(img) { display: block; width: 100%; height: auto; border-radius: 8px; }
+</style>

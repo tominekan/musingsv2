@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PlateCard from '../../components/PlateCard.astro';
+import { getPlates } from '../../lib/content';
+
+const plates = await getPlates();
+---
+<BaseLayout title="Small plates" section="plates" description="Short posts, served often.">
+  <section aria-labelledby="plates-h" class="feed">
+    <div class="head">
+      <h1 id="plates-h" class="section-title">Small plates</h1>
+      <p class="mono muted">// short posts, served often</p>
+    </div>
+    {plates.length === 0 ? (
+      <p class="empty mono muted">// the kitchen's quiet. check back soon.</p>
+    ) : (
+      plates.map((plate, i) => <PlateCard plate={plate} index={i} />)
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .feed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 560px;
+    padding: 40px 0 96px;
+  }
+  .head { display: flex; flex-direction: column; gap: 4px; }
+  .head p { margin: 0; font-size: 13px; }
+  .empty {
+    margin: 0;
+    padding: 18px 20px;
+    border-radius: 20px;
+    border: 2px dashed var(--line);
+    font-size: 13px;
+  }
+</style>

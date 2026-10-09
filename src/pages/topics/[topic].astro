@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WritingList from '../../components/WritingList.astro';
+import { getPosts } from '../../lib/content';
+import { topics, type TopicSlug } from '../../lib/topics';
+
+// One page per topic that has at least one post.
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const available = [...new Set(posts.map((p) => p.data.topic))];
+  return available.map((topic) => ({
+    params: { topic },
+    props: { topic, available, posts: posts.filter((p) => p.data.topic === topic) },
+  }));
+}
+
+const { topic, available, posts } = Astro.props as {
+  topic: TopicSlug;
+  available: TopicSlug[];
+  posts: Awaited<ReturnType<typeof getPosts>>;
+};
+const label = topics[topic].label;
+---
+<BaseLayout title={label} section="writing">
+  <WritingList heading={label} posts={posts} available={available} current={topic} />
+</BaseLayout>

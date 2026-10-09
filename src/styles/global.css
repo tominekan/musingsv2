@@ -1,0 +1,130 @@
+/* Tokens from the Musings design canvas. */
+:root {
+  --bg: #F4F1EA;
+  --surface: #FFFDF8;
+  --ink: #1E1A2B;
+  --muted: #5E5870;
+  --line: #D9D2C4;
+  --edge: #1E1A2B;
+  --shadow: #1E1A2B;
+  --accent: #C93C24;
+  --accent-ink: #FFFFFF;
+  --note: #FFF1A8;
+  --code-bg: #1E1A2B;
+  --code-ink: #EEEAF6;
+  /* 1 = the playful tilted look, 0 = everything sits straight. */
+  --tilt: 1;
+
+  --font-sans: 'Bricolage Grotesque', ui-rounded, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --font-serif: 'Literata', Georgia, 'Times New Roman', serif;
+
+  /* Fallback topic colors; [data-topic] overrides these. */
+  --t-bg: var(--line);
+  --t-ink: var(--ink);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+a { color: var(--ink); }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+img { max-width: 100%; height: auto; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px);
+}
+
+.mono { font-family: var(--font-mono); }
+.muted { color: var(--muted); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* The hard-edged card with an offset shadow. */
+.card {
+  background: var(--surface);
+  border: 2px solid var(--edge);
+  box-shadow: 6px 6px 0 var(--shadow);
+}
+.lift { transition: transform .15s ease; }
+.lift:hover { transform: translate(-2px, -2px); }
+
+/* Pill-shaped links and buttons, all at least 44px tall. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 2px solid var(--edge);
+  background: var(--t-bg);
+  color: var(--t-ink);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.chip:hover { color: var(--t-ink); filter: brightness(0.96); }
+.chip[aria-current='page'] { background: var(--ink); color: var(--bg); }
+
+.button {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 2px solid var(--edge);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+.button:hover { color: var(--accent-ink); }
+
+.text-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+
+.kicker {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lift, .lift:hover { transition: none; transform: none; }
+}

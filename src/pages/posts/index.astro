@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WritingList from '../../components/WritingList.astro';
+import { getPosts } from '../../lib/content';
+
+const posts = await getPosts();
+const available = [...new Set(posts.map((p) => p.data.topic))];
+---
+<BaseLayout title="Writing" section="writing">
+  <WritingList heading="Writing" posts={posts} available={available} />
+</BaseLayout>

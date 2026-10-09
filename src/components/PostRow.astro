@@ -1,0 +1,62 @@
+---
+import TopicPill from './TopicPill.astro';
+import Rating from './Rating.astro';
+import { formatMonthDay, formatYear, summaryOf, type Post } from '../lib/content';
+
+interface Props {
+  post: Post;
+}
+const { post } = Astro.props;
+const { title, topic, date, rating } = post.data;
+---
+<article class="row">
+  <time class="mono muted" datetime={date.toISOString()}>
+    {formatMonthDay(date)}<br />{formatYear(date)}
+  </time>
+  <div class="body">
+    <h3><a href={`/posts/${post.id}`}>{title}</a></h3>
+    <p class="muted">{summaryOf(post, 140)}</p>
+  </div>
+  <div class="aside">
+    <TopicPill topic={topic} />
+    {rating !== undefined && <Rating topic={topic} value={rating} />}
+  </div>
+</article>
+
+<style>
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    align-items: flex-start;
+    padding: 22px 0;
+    border-top: 2px dashed var(--line);
+  }
+  time {
+    flex: 0 0 88px;
+    padding-top: 6px;
+    font-size: 13px;
+  }
+  .body {
+    flex: 1 1 280px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  h3 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+  }
+  h3 a { text-decoration: none; }
+  p { margin: 0; }
+  .aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+</style>

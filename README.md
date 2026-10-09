@@ -1,39 +1,82 @@
-# Musings v2.0
+# Musings v3
 
-This is a rebuild of my simple blog website. 
-We're using Bootstrap + Django for our tech stack (for now).
+My blog, as a static site built with [Astro](https://astro.build). No server and no database: posts are markdown files in this repo, and pushing to `main` publishes them.
 
-I'm switching from JAMStack to some Django to learn some Django. In additon, I have a lot more control over how it looks like.
+(v2 was Django + Bootstrap + Postgres. That's all gone now; it's in the git history if I ever miss it.)
 
+## Running it
 
-## Setup
+Needs Node 18 or newer.
 
-I don't include Bootstrap/Sass in the source code (just cause it's a lot of files). So it might be helpful (to future me) to figure out how to ensure bootstrap works.
-
-First we install Bootstrap in a custom directory of our choosing. It's called `custom_bootstrap` in this project.
 ```
-mkdir custom_bootstrap
-cd custom_bootstrap
-npm init -y
-npm install bootstrap@5.3.6
+npm install
+npm run dev      # http://localhost:4321, live reload
+npm run build    # static site in dist/
+npm run preview  # serve dist/ locally
+npm run check    # type-check .astro/.ts files and content frontmatter
 ```
 
-There should already be a `custom.scss` file in the `scss` directory. All that's left is to compile that file into css.
+## Writing
 
-To run the sass compiler, first install sass. Then have it watch for any changes in the `custom.scss` file.
-```
-npm install -g sass
-sass ./scss/custom.scss ./css/custom.css
+### A post
+
+Add `src/content/posts/<slug>.md`. The file name becomes the URL (`/posts/<slug>`).
+
+```markdown
+---
+title: "Dijkstra, explained with a subway map"
+date: 2026-10-03
+topic: algorithms        # must be a key in src/lib/topics.ts
+summary: "Shortest paths, priority queues, and why being greedy works out."   # optional
+series: "Solutions in Search of a Problem"   # optional
+tags: [graphs]           # optional
+rating: 9                # optional, shows a 9/10 badge (food reviews)
+hero: ./dijkstra.png     # optional image, path relative to this file
+heroAlt: "A subway map"  # describe the hero image
+draft: true              # optional; drafts only show in `npm run dev`
+---
+
+The post, in markdown.
 ```
 
-## Planned Features
+Without a `summary`, the first paragraph is used on cards and in RSS.
+
+### A small plate
+
+Small plates are short posts with no title. Each is a file in `src/content/plates/`:
+
+```markdown
+---
+date: 2026-10-05T19:30:00-04:00
+topics: [food, cooking]   # optional, shown as #hashtags
+---
+
+Made shakshuka for the first time. Too much cumin, zero regrets.
+```
+
+The quickest way to add one is my local `plate` script (gitignored, aliased in `~/.zshrc`):
+
+```
+plate "Made shakshuka. Too much cumin, zero regrets." food cooking
+plate "Made shakshuka. Too much cumin, zero regrets. #food #cooking"
+```
+
+Hashtags can be bare words after the quote, or `#tags` at the end of the quote. (zsh treats an unquoted `#word` as a comment, so `plate "..." #food` loses the tag.) A hashtag that isn't a topic yet gets added to `src/lib/topics.ts` with a color; recolor it there if you like.
+
+### A new topic
+
+Topics and their colors live in one place, `src/lib/topics.ts`. Add an entry with a label, a background color and an ink color (keep ink-on-background contrast at 4.5:1 or better). It then works everywhere: pills, filter chips, `#hashtags`, tinted panels, and `/topics/<topic>`.
+
+## Deploying
+
+Any static host works. Connect this repo to Cloudflare Pages, Netlify or Vercel with:
+
+- Build command: `npm run build`
+- Output directory: `dist`
+- Environment variable: `SITE_URL` = the site's public URL, e.g. `https://musings.example.com` (RSS and the sitemap need it)
+
+## Planned features
 - [x] Markdown article content support
-- [ ] Updating the look and Feel of the admin page
-- [ ] Implement pagination for the list of articles lol
-- [ ] Articles search (if I have enough time)
-- [ ] Email Notifications (if I decide to be consistent)
-- [ ] Syntax highlighting for code snippets
-
-
-## Personal Notes
-Currently I'm using Neon for my Database and and Render for server hosting, lol I just need something that's free.
+- [x] Syntax highlighting for code snippets
+- [ ] Word Cloud (Fun Feature)
+- [ ] Email notifications (RSS is there; a newsletter service could send from it)

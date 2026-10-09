@@ -1,0 +1,28 @@
+---
+import type { TopicSlug } from '../lib/topics';
+
+interface Props {
+  topic: TopicSlug;
+  value: number;
+}
+const { topic, value } = Astro.props;
+---
+<span class="rating" data-topic={topic} aria-label={`Rated ${value} out of 10`}>{value}/10</span>
+
+<style>
+  .rating {
+    width: 60px;
+    height: 60px;
+    flex: none;
+    border-radius: 50%;
+    border: 2px solid var(--edge);
+    background: var(--t-bg);
+    color: var(--t-ink);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+    transform: rotate(calc(var(--tilt) * 10deg));
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Arrow from '../components/Arrow.astro';
+---
+<BaseLayout title="Not found">
+  <section class="nf">
+    <p class="kicker">// 404</p>
+    <h1>This page wandered off.</h1>
+    <p class="muted">Old links from the previous version of the site don't work anymore. Everything I've written is on the writing page.</p>
+    <a href="/posts" class="button">All writing<Arrow /></a>
+  </section>
+</BaseLayout>
+
+<style>
+  .nf {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 640px;
+    padding: 56px 0 120px;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.03;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+  }
+  .nf > p:not(.kicker) { margin: 0; font-size: 20px; }
+</style>

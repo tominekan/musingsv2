@@ -1,0 +1,67 @@
+---
+import { render } from 'astro:content';
+import TopicPill from './TopicPill.astro';
+import { formatDate, type Plate } from '../lib/content';
+
+interface Props {
+  plate: Plate;
+  // Position in the list; alternates the tilt so the stack looks hand-placed.
+  index?: number;
+}
+const { plate, index = 0 } = Astro.props;
+const { Content } = await render(plate);
+const tilts = [-0.6, 0.8, -0.4, 0.6];
+---
+<article id={plate.id} class="plate" style={`--plate-tilt: ${tilts[index % tilts.length]}deg`}>
+  <div class="byline">
+    <span class="avatar" aria-hidden="true">t</span>
+    <span class="name">tomi</span>
+    <time class="mono muted" datetime={plate.data.date.toISOString()}>{formatDate(plate.data.date)}</time>
+  </div>
+  <div class="content"><Content /></div>
+  {plate.data.topics.length > 0 && (
+    <div class="tags">{plate.data.topics.map((topic) => <TopicPill topic={topic} size="hash" />)}</div>
+  )}
+</article>
+
+<style>
+  .plate {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px 20px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 2px solid var(--edge);
+    transform: rotate(calc(var(--tilt) * var(--plate-tilt)));
+  }
+  .byline { display: flex; align-items: center; gap: 10px; }
+  .avatar {
+    flex: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--edge);
+    background: var(--accent);
+    color: var(--accent-ink);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 15px;
+  }
+  .name { font-weight: 700; }
+  time { margin-left: auto; font-size: 12px; }
+  .content { font-size: 17px; line-height: 1.45; }
+  .content :global(p) { margin: 0 0 8px; }
+  .content :global(p:last-child) { margin-bottom: 0; }
+  .content :global(pre) {
+    margin: 8px 0 0;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-x: auto;
+  }
+  .content :global(pre code) { font-family: var(--font-mono); }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+</style>

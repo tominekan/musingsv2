@@ -1,0 +1,24 @@
+---
+title: "Summer 2025 Restaurant Review"
+date: 2025-08-05
+series: "Food Reviews"
+topic: food
+---
+
+This summer, I stayed in Philly to do research, and I just have to say that the Philly weather is genuinely demonic. However, I'm not here to rant about at Philly weather, instead, I want to review the food spots I hit up over the summer, and give some of my thoughts on each spot. To be honest, I don't think I remember all the spots I hit up, but I'm doing my best here. These are listed in no particular order
+
+### Tu Rinconcito
+I remember, it was 4th of July, my friends and I were tired of walking around Old City and hungry as all hell. Per the usual, it was hot and humid as a mf, and Tu Riconcito, a Mexican spot, which we originally missed becuase of it's inconspicuous sign. Walking in, they had a bowl of mint candy right next to the cash register, and I knew that we found a great pick. The customer service was genuinely amazing, especially knowing that Philly mfs will stare daggers at you as you're placing your order. My friends asked for a charger, and I remember the cashier making a concerted effort to look for a charger, which was heartwarming. The food (my burrito), was very good, but not great. It felt like the burrito was missing some additional spices. I could taste the salt, but I couldn't taste any exotic-ness (shii I might be racist for this), or really anything that helps me recognize that this is mexican food. To be fair, I asked for it without salsa or beans, so this might be on me. 
+
+### Thanal
+This was the last restaurant I had in Philly. We were looking for good Indian eats, and my friend's lab mentors had recommended Ammas. Annoyingly, another friend reserved this spot instead of Amma's like we'd originally planned (without telling any of us). Weirdly, even though we'd reserved second floor seating, we weren't allowed to go to the second floor. Even though I'd tried to hate, the food quality was honestly undeniable. The butter chicken and chicken tikka masala were rich in flavor, and creamy as a mf. That chicken was juicy and not overcooked, and really, very well seasoned. My biggest gripe would've had to be the naan, it's honestly pretty bland. When it was time to pay, I also felt weirded out by how close the server was standing to me not going to lie, but overall I can't even hate on the place too much since the dishes were great.
+
+### Paesanos
+As usual, it was a hot ass day in Philly, and a friend of mine suggested we'd head to the Italian market to see what's going on. After walking around and appreciating the Italian delis, we eventually settled down at Paesanos. The interior was had a artisanal, Italian, local establishment vibe to it, with a lot of wood, pictures of older Philly, and such. To be honest, I don't remember the name of my order, but it was a sandwich. Looking my order, I was honestly terrified because I saw what looked like a veritable salad on top of my bread. However, it didn't taste as dissapointing as I'd feared, which was great. However, while it was pretty good, honestly it wasn't memorable in any way. As I was eating it, I couldn't imagine recommending this place to my friends, and for around 20 dollars, it wasn't as big as I'd liked.
+
+
+### Don Barriga
+We'd heard some good things from other friends about Don Barriga, so when my friend suggested we go there, I was excited to see what was going on. The customer service was honestly pretty good, and the place had a nice vibe going for it. I was happy to see hispanic people eating in the place because that's how you know the food is solid. I'd ordered a torta, and it was great. I didn't feel any dryness, the meat was adequately seasoned, and it was a good meal. However, the food just wasn't elite to me. After doing some self-reflection all summer to try to figure out the gap in taste, I think it might be my fault. Usually I order the simplest things and ask for them to take off a good amount of what makes the food feel complete. This doesn't let the restaurant shine, and the food ends up tasting good, but incomplete. I might come back with a re-evaluation sometime.
+
+### Carter's Pizza and Beer
+My friend suggested we try this place, it was close by to another friend's place. Since I was at work, I looked at the online menu and was excited to see some delicious options, specifically the Cheesesteak Pizza. Walking in, it's a small establishment that really looks to be more of a takeout situation where you'd order the pizza, grab a couple drinks, and leave to have a good time. I'd ordered a large cheesesteak pizza, which, painfuly, ran me about 21 dollars. And to be honest, that pizza was just tasteless. Man, as soon as I tasted that lack of flavor, my heart (and wallet) sank.

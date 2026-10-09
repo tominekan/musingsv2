@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FeaturedPost from '../components/FeaturedPost.astro';
+import PostRow from '../components/PostRow.astro';
+import PlateCard from '../components/PlateCard.astro';
+import TopicFilter from '../components/TopicFilter.astro';
+import Arrow from '../components/Arrow.astro';
+import { getPlates, getPosts } from '../lib/content';
+
+const posts = await getPosts();
+const plates = await getPlates();
+const [featured, ...rest] = posts;
+const recent = rest.slice(0, 5);
+const available = [...new Set(posts.map((p) => p.data.topic))];
+---
+<BaseLayout>
+  <section class="intro">
+    <p class="kicker">// hi, i'm tomi</p>
+    <!-- .nw keeps each highlight glued to its punctuation so a line never starts with a comma. -->
+    <h1>
+      Pull up a chair. Today it's{' '}
+      <span class="nw"><span class="hl" data-topic="algorithms" style="--hl-tilt: -2deg">algorithms</span>,</span>{' '}
+      <span class="nw"><span class="hl" data-topic="philosophy" style="--hl-tilt: 1.5deg">philosophy</span>,</span>{' '}
+      and what I had for{' '}
+      <span class="nw"><span class="hl" data-topic="food" style="--hl-tilt: -1deg">lunch</span>.</span>
+    </h1>
+    <p class="lede">Long posts when I've figured something out. Small plates when I haven't.</p>
+  </section>
+
+  <div class="columns">
+    <section id="writing" aria-labelledby="writing-h" class="writing">
+      <div class="section-head">
+        <h2 id="writing-h" class="section-title">Writing</h2>
+        <TopicFilter available={available} />
+      </div>
+
+      {featured ? <FeaturedPost post={featured} /> : <p class="mono muted">// nothing here yet</p>}
+
+      {recent.length > 0 && (
+        <div class="rows">
+          {recent.map((post) => <PostRow post={post} />)}
+        </div>
+      )}
+
+      {posts.length > 1 && <a href="/posts" class="text-link">All writing<Arrow /></a>}
+    </section>
+
+    <aside id="plates" aria-labelledby="plates-h" class="plates">
+      <div class="plates-head">
+        <h2 id="plates-h" class="section-title">Small plates</h2>
+        <p class="mono muted">// short posts, served often</p>
+      </div>
+      {plates.length === 0 ? (
+        <p class="empty mono muted">// the kitchen's quiet. check back soon.</p>
+      ) : (
+        plates.slice(0, 4).map((plate, i) => <PlateCard plate={plate} index={i} />)
+      )}
+      {plates.length > 4 && <a href="/plates" class="text-link">More small plates<Arrow /></a>}
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 56px 0 80px;
+    max-width: 920px;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(42px, 6.4vw, 84px);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .nw { white-space: nowrap; }
+  .hl {
+    display: inline-block;
+    padding: 0 0.16em;
+    border-radius: 0.18em;
+    background: var(--t-bg);
+    color: var(--t-ink);
+    transform: rotate(calc(var(--tilt) * var(--hl-tilt)));
+  }
+  .lede {
+    margin: 0;
+    max-width: 560px;
+    font-size: 21px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+    align-items: flex-start;
+    padding-bottom: 96px;
+  }
+  .writing {
+    flex: 999 1 560px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .rows { display: flex; flex-direction: column; }
+  .plates {
+    flex: 1 1 320px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .plates-head {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 44px;
+  }
+  .plates-head p { margin: 0; font-size: 13px; }
+  .empty {
+    margin: 0;
+    padding: 18px 20px;
+    border-radius: 20px;
+    border: 2px dashed var(--line);
+    font-size: 13px;
+  }
+</style>

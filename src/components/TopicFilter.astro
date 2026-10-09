@@ -1,0 +1,22 @@
+---
+import { topics, type TopicSlug } from '../lib/topics';
+
+interface Props {
+  // Topics that have posts; others are left out so no filter leads nowhere.
+  available: TopicSlug[];
+  current?: TopicSlug;
+}
+const { available, current } = Astro.props;
+---
+<nav aria-label="Filter by topic" class="filter">
+  <a href="/posts" class="chip" aria-current={current ? undefined : 'page'}>All</a>
+  {available.map((slug) => (
+    <a href={`/topics/${slug}`} class="chip" data-topic={slug} aria-current={current === slug ? 'page' : undefined}>
+      {topics[slug].label}
+    </a>
+  ))}
+</nav>
+
+<style>
+  .filter { display: flex; gap: 8px; flex-wrap: wrap; }
+</style>

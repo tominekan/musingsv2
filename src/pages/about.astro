@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import tomi from '../assets/tomi.png';
+---
+<BaseLayout title="About" section="about" description="Who's writing this.">
+  <section class="about">
+    <div class="text">
+      <p class="kicker">// about</p>
+      <h1>Who <span class="hl" data-topic="philosophy">am I?</span></h1>
+      <p>
+        I'm Tomi Adenekan, a sophomore studying Computer Science with a minor in Philosophy at Penn. I love to
+        cook, workout, code, and eat. I love learning most things and like an interesting challenge. You'll often
+        find me working through the tons of homework I can never seem to escape, thinking about philosophy, or
+        working on a cool project.
+      </p>
+      <p>
+        If you want to get in touch, send me an email at{' '}
+        <a href="mailto:tominekan12@gmail.com">tominekan12@gmail.com</a>.
+      </p>
+    </div>
+    <figure class="photo card">
+      <Image src={tomi} alt="Tomi" width={487} />
+    </figure>
+  </section>
+</BaseLayout>
+
+<style>
+  .about {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+    align-items: center;
+    padding: 56px 0 96px;
+  }
+  .text {
+    flex: 1 1 420px;
+    min-width: 0;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(42px, 6.4vw, 84px);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+  }
+  .hl {
+    display: inline-block;
+    padding: 0 0.16em;
+    border-radius: 0.18em;
+    background: var(--t-bg);
+    color: var(--t-ink);
+    transform: rotate(calc(var(--tilt) * 1.5deg));
+  }
+  .text > p:not(.kicker) { margin: 0; font-size: 20px; line-height: 1.6; }
+  .photo {
+    flex: 0 1 320px;
+    margin: 0;
+    padding: 12px;
+    border-radius: 24px;
+    transform: rotate(calc(var(--tilt) * 1deg));
+  }
+  .photo :global(img) { display: block; width: 100%; height: auto; border-radius: 14px; }
+</style>
