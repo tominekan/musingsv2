@@ -8,6 +8,7 @@ export const topics = {
   anime: { label: 'Anime', bg: '#FFD6E8', ink: '#8A1E4F' },
   movies: { label: 'Movies', bg: '#D3EFD6', ink: '#1F5530' },
   projects: { label: 'Projects', bg: '#FFEDA3', ink: '#5E4600' },
+  general: { label: 'General', bg: '#CDEFEA', ink: '#145A52' },
   // The `plate` script adds new hashtags above this line. Recolor them freely.
 } as const;
 
